@@ -1,6 +1,7 @@
 from datetime import datetime, timezone
 from pytz import timezone
 
+
 def utc_2_pk(utctime_str: str) -> datetime:
     '''UTC时间字符串转化为北京时间的datetime对象
     :参数 utctime_str:UTC时间字符串，格式为y-m-d H:M:S
@@ -27,6 +28,7 @@ def pk_2_utc(pktime_str: str) -> datetime:
     utctime = pktime.astimezone(timezone('UTC'))
     return utctime
 
+
 now_time = datetime.now()
 
 utc_time = pk_2_utc(now_time.strftime("%Y-%m-%d %H:%M:%S"))
@@ -34,4 +36,3 @@ print('utc_time', utc_time.strftime("%Y-%m-%d %H:%M:%S"))
 
 now_time = utc_2_pk(utc_time.strftime(("%Y-%m-%d %H:%M:%S")))
 print('now_time', now_time.strftime("%Y-%m-%d %H:%M:%S"))
-
